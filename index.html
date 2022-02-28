@@ -17,7 +17,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid w-75 mx-auto">
-              <a class="navbar-brand" href="#">Phone Shop</a>
+              <a class="navbar-brand" href="#">iPhone Shop</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -33,10 +33,6 @@
                     <a class="nav-link disabled">Disabled</a>
                   </li>
                 </ul>
-                <div class="d-flex">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-danger" type="submit">Search</button>
-                </div>
               </div>
             </div>
           </nav>
@@ -48,14 +44,32 @@
          main section start 
             ----------------->
     <main>
+         
+        <!-- <section> -->
+            <!-------------
+                 input field  
+                --------------->
         <div class="d-flex mt-5 mx-auto w-50">
             <input id="input" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button onclick="loadingButton ()" class="btn btn-outline-danger" type="submit">Search</button>
+            <button onclick="loadingButton ()" class="btn btn-outline-dark" type="submit">Search</button>
           </div>
-
+          <!--------------
+             all product  
+            -------------------->
+              <!------------------
+             details section 
+             ---------------->
+             <section>
+                <div id="details" class="row container bg-light rounded mt-5 mx-auto"></div>
+            </section>
+             <!------------------
+             details section end
+             ---------------->
         <div id="display" class="row container-fluid mx-auto w-75 my-5">
             <img src="" alt="">
         </div>
+        <!-- </section> -->
+      
     </main>
     <!------------
     main section end 
