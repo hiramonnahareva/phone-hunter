@@ -9,7 +9,6 @@ const loadingButton = () => {
     const input = document.getElementById ('input') ;
     const searchText = input.value ;
    if (searchText == ''){
-    //    console.log ('error')
       displayFunction ('error','block') ;
       displayFunction('all-display' , 'none') ;
 
@@ -17,7 +16,6 @@ const loadingButton = () => {
    else {
        displayFunction('error','none') ;
     input.value = '' ;
-    // console.log (searchResultvalue) ;
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`
     fetch (url) 
     .then (res => res.json ())
@@ -28,7 +26,6 @@ const loadingButton = () => {
 const display = products => {
     const displayDiv = document.getElementById ('display')
     if (products == ''){
-        console.log ('hdhds')
          displayFunction ('error','block') ;
       displayFunction('all-display' , 'none') ;
     }
@@ -36,7 +33,6 @@ const display = products => {
     displayDiv.textContent = '' ;
     const products20 = products.slice (0 , 12) ;
     products20.forEach(element => {
-        // console.log (element.slug) ;
       const div =  document.createElement ('div') ;
       div.className= 'col-md-4 my-2'
       div.innerHTML = `
@@ -54,7 +50,6 @@ const display = products => {
 }
 // details button function
 const detailsBtn = id => {
-    // console.log (id)
     const url = `https://openapi.programming-hero.com/api/phone/${id}` ;
     fetch (url)
     .then (res => res.json())
@@ -62,7 +57,6 @@ const detailsBtn = id => {
 }
 // details information display function
 const detailInfo = (details) => {
-     console.log (details.data.mainFeatures.chipSet)
     displayFunction('details' , 'block') ;
     const displayDetails = document.getElementById ('details')
     const others = details?.data?.others ;
@@ -94,7 +88,6 @@ const detailInfo = (details) => {
         </div>
         <h1 class='text-center'>${details.data.name}</h1>
         <h4 class='text-center'>${details.data.brand}</h4>
-
         <h5 class='text-center'>Chip Set: ${details.data.mainFeatures.chipSet}</h5>
         <h5 class='text-center text-danger'> Release date is no found</h5>
         <h6 class='text-center mt-5'><span class='mx-3'>Bluetooth: ${Bluetooth}</span><span class='ms-3'>Gps: ${GPS}</span></h5>
