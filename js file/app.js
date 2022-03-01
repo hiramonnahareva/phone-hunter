@@ -57,7 +57,6 @@ const detailsBtn = id => {
 }
 // details information display function
 const detailInfo = (details) => {
-    console.log (details.data)
     displayFunction('details' , 'block') ;
     const displayDetails = document.getElementById ('details')
     const others = details?.data?.others ;
