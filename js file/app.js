@@ -1,7 +1,7 @@
-// error function 
-const errorFunction = (id , displayStyle) => {
-    const error = document.getElementById (id) ;
-     error.style.display = displayStyle
+// error div and and others div display function 
+const displayFunction = (id , displayStyle) => {
+    const divId = document.getElementById (id) ;
+     divId.style.display = displayStyle
 }
 
 // searching input 
@@ -10,12 +10,12 @@ const loadingButton = () => {
     const searchText = input.value ;
    if (searchText == ''){
     //    console.log ('error')
-      errorFunction ('error','block') ;
-      errorFunction('all-display' , 'none') ;
+      displayFunction ('error','block') ;
+      displayFunction('all-display' , 'none') ;
 
    }
    else {
-       errorFunction('error','none') ;
+       displayFunction('error','none') ;
     input.value = '' ;
     // console.log (searchResultvalue) ;
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`
@@ -29,8 +29,8 @@ const display = products => {
     const displayDiv = document.getElementById ('display')
     if (products == ''){
         console.log ('hdhds')
-         errorFunction ('error','block') ;
-      errorFunction('all-display' , 'none') ;
+         displayFunction ('error','block') ;
+      displayFunction('all-display' , 'none') ;
     }
     else{
     displayDiv.textContent = '' ;
@@ -48,6 +48,7 @@ const display = products => {
       </div>
       `
       displayDiv.appendChild (div) ;
+      displayFunction('details' , 'none') ;
     });
 }
 }
@@ -61,14 +62,29 @@ const detailsBtn = id => {
 }
 // details information display function
 const detailInfo = (details) => {
+    displayFunction('details' , 'block') ;
     const displayDetails = document.getElementById ('details')
-    const others = details.data.others
+    const others = details?.data?.others ;
+    if (others === undefined){
+        displayDetails.innerHTML = `<div class='p-5'>
+        <div class ='d-flex justify-content-center'> 
+        <img src='${details.data.image}' >
+        </div>
+        <h1 class='text-center'>${details.data.name}</h1>
+        <h4 class='text-center'>${details.data.brand}</h4>
+        <h5 class='text-center'>${details.data.releaseDate}</h5>
+        <h5 class='text-center text-danger'> no others information </h5>
+        </div>
+         `
+
+    }
     // console.log (details.data)
-    const {Bluetooth , GPS , NFC ,Radio , WLAN} = others
-    const sensors = (details.data.mainFeatures.sensors)
+    else {
+    const {Bluetooth , GPS , NFC ,Radio , WLAN} = others ;
+    const sensors = (details.data.mainFeatures.sensors) ;
     const [FaceID , accelerometer , gyro , proximity , compass , barometer] = sensors ;
-    console.log (sensors)
-    const releaseDate = (details.data.releaseDate)
+    console.log (sensors) ;
+    const releaseDate = (details.data.releaseDate) ;
     if (releaseDate == ''){
         displayDetails.innerHTML = `<div class='p-5'>
         <div class ='d-flex justify-content-center'> 
@@ -90,7 +106,7 @@ const detailInfo = (details) => {
     displayDetails.innerHTML = `
     <div class='p-5'>
    <div class ='d-flex justify-content-center'> 
-   <img src='${details.data.image}' >
+   <img src='${details.data.image}'>
    </div>
    <h1 class='text-center'>${details.data.name}</h1>
    <h4 class='text-center'>${details.data.brand}</h4>
@@ -102,6 +118,7 @@ const detailInfo = (details) => {
         
    </div>
     `
+    }
 
     }
 }
