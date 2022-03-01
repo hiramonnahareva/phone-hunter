@@ -31,7 +31,7 @@ const display = products => {
     }
     else{
     displayDiv.textContent = '' ;
-    const products20 = products.slice (0 , 12) ;
+    const products20 = products.slice (0 , 20) ;
     products20.forEach(element => {
       const div =  document.createElement ('div') ;
       div.className= 'col-md-4 my-2'
@@ -57,6 +57,7 @@ const detailsBtn = id => {
 }
 // details information display function
 const detailInfo = (details) => {
+    console.log (details.data)
     displayFunction('details' , 'block') ;
     const displayDetails = document.getElementById ('details')
     const others = details?.data?.others ;
@@ -68,7 +69,9 @@ const detailInfo = (details) => {
         <h1 class='text-center'>${details.data.name}</h1>
         <h4 class='text-center'>${details.data.brand}</h4>
         <h5 class='text-center'>Release Date: ${details.data.releaseDate}</h5>
-        <h5 class='text-center'>Chip Set: ${details.data.mainFeatures.chipSet}</h5>
+        <h6 class='text-center mt-5'>Chip Set: ${details.data.mainFeatures.chipSet}</h6>
+        <h6 class='text-center'>Memory: ${details.data.mainFeatures.memory}</h6>
+        <h6 class='text-center'>Display Size: ${details.data.mainFeatures.displaySize}</h6>
         <h5 class='text-center text-danger'> no others information </h5>
         </div>
          `
@@ -88,8 +91,10 @@ const detailInfo = (details) => {
         </div>
         <h1 class='text-center'>${details.data.name}</h1>
         <h4 class='text-center'>${details.data.brand}</h4>
-        <h5 class='text-center'>Chip Set: ${details.data.mainFeatures.chipSet}</h5>
         <h5 class='text-center text-danger'> Release date is no found</h5>
+        <h6 class='text-center mt-5'>Chip Set: ${details.data.mainFeatures.chipSet}</h6>
+        <h6 class='text-center'>Memory: ${details.data.mainFeatures.memory}</h6>
+        <h6 class='text-center'>Display Size: ${details.data.mainFeatures.displaySize}</h6>
         <h6 class='text-center mt-5'><span class='mx-3'>Bluetooth: ${Bluetooth}</span><span class='ms-3'>Gps: ${GPS}</span></h5>
         <h6 class='text-center my-3'><span class='ms-4>NFC: ${NFC}</span> <span class='ms-4'>Radio: ${Radio}</span><span class='ms-4'>Radio: ${USB}</span></h6>
         <h6 class='text-center'>WLAN: ${WLAN}</span></h6>
@@ -106,8 +111,10 @@ const detailInfo = (details) => {
    </div>
    <h1 class='text-center'>${details.data.name}</h1>
    <h4 class='text-center'>${details.data.brand}</h4>
-   <h5 class='text-center'>Release Date:${releaseDate}</h5>
-   <h5 class='text-center'>Chip Set: ${details.data.mainFeatures.chipSet}</h5>
+   <h5 class='text-center my-5'>Release Date:${releaseDate}</h5>
+   <h6 class='text-center'>Chip Set: ${details.data.mainFeatures.chipSet}</h6>
+   <h6 class='text-center'>Memory: ${details.data.mainFeatures.memory}</h6>
+   <h6 class='text-center'>Display Size: ${details.data.mainFeatures.displaySize}</h6>
    <h6 class='text-center  mt-5'><span class='mx-3'>Bluetooth: ${Bluetooth}</span><span class='ms-3'>Gps: ${GPS}</span></h5>
    <h6 class='text-center my-3'>Sensors : ${FaceID} , ${accelerometer} , ${gyro} , ${ proximity} , ${compass} , ${barometer}</h6>
         <h6 class='text-center my-3'><span class='ms-5'>NFC: ${NFC}</span> <span class='ms-5'>Radio: ${Radio}</span><span class='ms-5'>Radio: ${USB}</span></h6>
